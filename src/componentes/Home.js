@@ -1,43 +1,65 @@
-import React,{useState} from "react";
-import {View,Image,Text,StyleSheet,TextInput,TouchableOpacity,Alert} from 'react-native';
-import { useNavigation } from "@react-navigation/native";
-const Home= (props) => {
-    const navigation=useNavigation();
-    
+import React, {useState} from 'react';
+import {
+  View,
+  Image,
+  Text,
+  StyleSheet,
+  TextInput,
+  TouchableOpacity,
+  Alert,
+} from 'react-native';
+import {useNavigation} from '@react-navigation/native';
+import Estilo from '../styles/globalStyles.js';
 
-    return (
-        //é o que vai ser redenrizado
-        
+const Home = props => {
+  const [appear, setAppear] = React.useState(false);  
+  const navigation = useNavigation();
 
-        <View>
-             <Text>App - Cadastro de Alunos</Text>
-             <TouchableOpacity
-                onPress={()=>navigation.navigate('Cadastro')}
-              
+  function abrirDrawer() {
+      setAppear(open => !open);
+  }
+
+  function fechar() {
+    setAppear(false);
+}
+
+  return (
+    <>
+      {/* //é o que vai ser redenrizado */}
+    <TouchableOpacity onPress={fechar}>
+    {appear === false 
+      ? <TouchableOpacity style={Estilo.styleTouchOpacity} onPress={abrirDrawer}>
+            <Text style={Estilo.textStyleHome}>
+                ABRIR O DRAWER
+            </Text>
+        </TouchableOpacity>
+      : <View style={Estilo.styleDrawer}>
+            <TouchableOpacity 
+                style={Estilo.styleTouchOpacity} 
+                onPress={() => navigation.navigate('Cadastro')}
             >
-            <Text >Cadastro</Text>
+                <Text style={Estilo.textStyleHome}>Cadastro</Text>
             </TouchableOpacity>
 
-            
-             <TouchableOpacity
-                onPress={()=>navigation.navigate('Notas')}              
+            <TouchableOpacity 
+                style={Estilo.styleTouchOpacity} 
+                onPress={() => navigation.navigate('Notas')}
             >
-            <Text>Notas</Text>
+                <Text style={Estilo.textStyleHome}>Notas</Text>
             </TouchableOpacity>
 
-            <TouchableOpacity
-                onPress={()=>navigation.navigate('Perfil')}              
+            <TouchableOpacity 
+                style={Estilo.styleTouchOpacity} 
+                onPress={() => navigation.navigate('Perfil')}
             >
-            <Text>Perfil do Aluno</Text>
+                <Text style={Estilo.textStyleHome}>Perfil do Aluno</Text>
             </TouchableOpacity>
-
         </View>
+      }
+    </TouchableOpacity>
+    </>
+  );
+};
 
-    );
-
-    };
-
-    const styles = StyleSheet.create({
-      
-      });
+const styles = StyleSheet.create({});
 export default Home;

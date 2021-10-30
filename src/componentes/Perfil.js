@@ -43,7 +43,7 @@ const Perfil = ({navigation, route}) => {
           Aluno
         </Text>
         <Picker
-          style={{backgroundColor: '#fff'}}
+          style={{backgroundColor: '#d9d9d9'}}
           selectedValue={alunoSelecionado}
           onValueChange={(value, index) => setAluno(value)}
           mode="dropdown" // Android only
@@ -57,7 +57,7 @@ const Perfil = ({navigation, route}) => {
 
       {/* caso tenha sido preenchida a variável alunoCadastro, mostra as informações abaixo */}
       {alunoCadastro != null && (
-        <View style={{alignItems: 'center'}}>
+        <View>
           <Text style={globalStyles.title}>Aluno:{alunoCadastro.nome}</Text>
           <View>
             <Text style={globalStyles.defaultText}>
@@ -70,7 +70,7 @@ const Perfil = ({navigation, route}) => {
           </View>
 
           <Image
-            style={{width: 80, height: 80}}
+            style={{width: 80, height: 80, marginLeft: 150}}
             source={{uri: alunoCadastro.foto}}
           />
         </View>

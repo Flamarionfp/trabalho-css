@@ -22,17 +22,35 @@ const globalStyles = StyleSheet.create({
     textTransform: 'uppercase',
     paddingTop: 10,
   },
-  center:{
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
   title: {
     fontSize: 25,
     fontWeight: 'bold',
+    marginLeft: 110
   },
   defaultText: {
     fontSize: 18,
     textAlign: 'center',
+  },
+  textStyleHome: {
+    color: "#fff",
+    fontFamily: "Inter",
+    fontSize:25
+  },
+  styleDrawer: {
+    backgroundColor: '#D9D9D9',
+    height: 1000,
+    width: 300,
+    paddingTop: 400
+  },
+  styleTouchOpacity: {
+    paddingBottom: 30,
+    paddingLeft: 20,
+    marginBottom: 10,
+    fontSize: 25,
+    backgroundColor: '#808080',
+    height: 60,
+    width: 250,
+    borderRadius: 25
   }
 });
 
